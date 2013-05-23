@@ -27,9 +27,10 @@ public class Customer {
 	
 	public void setTypeAndTimeData(String str){
 		
+		
 	}
 	
-	public String searchHotelAndReturn(List<Hotel> hotelList){
+	public String searchHotelAndFindAndReturnCheapest(List<Hotel> hotelList){
 		
 		return null;
 		

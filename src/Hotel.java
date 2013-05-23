@@ -64,4 +64,8 @@ public class Hotel {
 		this.weekendayRewardsPrice = weekendayRewardsPrice;
 	}
 	
+	public Hotel returnTotalCostByCustomerTypeAndTime(String customerType,String[] customrDate){
+		
+		return null;
+	}
 }
