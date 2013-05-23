@@ -30,6 +30,9 @@ public class Customer {
 	
 	public void setTypeAndTimeData(String str){
 		
+		String[] tempStr = str.split(":");
+		setCustomerType(tempStr[0]);
+		//System.out.println(tempStr[0]);
 		
 	}
 	
