@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
 
 import per.tw.hotel.Hotel;
@@ -18,6 +19,7 @@ public class Test {
 		Hotel ridgewoodHotel = new Hotel("Ridgewood",220,100,150,40);
 		
 		Date today = new Date();
+		
 		
 
 		try {
