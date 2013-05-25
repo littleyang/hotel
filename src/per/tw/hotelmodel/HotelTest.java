@@ -1,13 +1,11 @@
 package per.tw.hotelmodel;
-
-import static org.junit.Assert.*;
-
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
 
-import per.tw.customer.Customer;
 
+import static org.junit.Assert.*;
+import per.tw.customer.Customer;
 
 
 public class HotelTest {
