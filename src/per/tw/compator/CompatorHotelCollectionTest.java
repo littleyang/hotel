@@ -1,13 +1,13 @@
-package per.tw.testu;
+package per.tw.compator;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class HotelDataBeanTest {
+public class CompatorHotelCollectionTest {
 
 	@Test
-	public void test() {
+	public void testCompare() {
 		fail("Not yet implemented");
 	}
 
