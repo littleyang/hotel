@@ -6,6 +6,8 @@ import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
 
+import per.tw.customer.Customer;
+
 
 
 public class HotelTest {
@@ -54,47 +56,119 @@ public class HotelTest {
 
 	@Test
 	public void testGetWeekendRegularPrice() {
-		fail("Not yet implemented");
+		Hotel hotel = new Hotel("test", 4, 120, 100, 150, 100);
+		assertEquals("the get hotel weekend regular price method should be right!",150.0, hotel.getWeekendRegularPrice(),0);
 	}
 
 	@Test
 	public void testSetWeekendRegularPrice() {
-		fail("Not yet implemented");
+		Hotel hotel = new Hotel("test", 4, 250, 100, 0, 100);
+		hotel.setWeekendRegularPrice(200);
+		assertEquals("the set hotel weekend regular price method should be right!",200.0, hotel.getWeekendRegularPrice(),0);
 	}
 
 	@Test
 	public void testGetWeekdayRewardsPrice() {
-		fail("Not yet implemented");
+		Hotel hotel = new Hotel("test", 4, 200, 150, 100, 100);
+		assertEquals("the get hotel weekday reawrds price method should be right!",150.0, hotel.getWeekdayRewardsPrice(),0);
 	}
 
 	@Test
 	public void testSetWeekdayRewardsPrice() {
-		fail("Not yet implemented");
+		Hotel hotel = new Hotel("test", 4, 0, 0, 100, 100);
+		hotel.setWeekdayRewardsPrice(140);
+		assertEquals("the set hotel weekday rewards price method should be right!",140.0, hotel.getWeekdayRewardsPrice(),0);
 	}
 
 	@Test
 	public void testGetWeekendRewardsPrice() {
-		fail("Not yet implemented");
+		Hotel hotel = new Hotel("test", 4, 0, 100, 100, 130);
+		assertEquals("the get hotel weekend rewards price method should be right!",130.0, hotel.getWeekendRewardsPrice(),0);
 	}
 
 	@Test
 	public void testSetWeekendRewardsPrice() {
-		fail("Not yet implemented");
+		Hotel hotel = new Hotel("test", 4, 210, 100, 100, 0);
+		hotel.setWeekdayRegularPrice(150);
+		assertEquals("the set hotel weekend rewards price method should be right!",150.0, hotel.getWeekdayRegularPrice(),0);
 	}
 
 	@Test
 	public void testGetHotelRate() {
-		fail("Not yet implemented");
+		Hotel hotel = new Hotel("test", 4, 0, 100, 100, 100);
+		assertEquals("the get hotel rates method should be right!",4, hotel.getHotelRate(),0);
 	}
 
 	@Test
 	public void testSetHotelRate() {
-		fail("Not yet implemented");
+		Hotel hotel = new Hotel("test", 4, 0, 100, 100, 100);
+		hotel.setHotelRate(5);
+		assertEquals("the set hotel rates method should be right!",5, hotel.getHotelRate(),0);
 	}
 
 	@Test
-	public void testReturnTotalCostByCustomerTypeAndTime() {
-		fail("Not yet implemented");
+	public void testReturnTotalCostByCustomerTypeAndTimeAccordingToRewardsAndWeekday() {
+		Hotel hotel = new Hotel("test", 4, 120, 100, 100, 80);
+		Customer customer = new Customer();
+		int[] date = {1,2,3,4,5};
+		customer.setCustomerType("Rewards");
+		customer.setReservationDateTime(date);
+		assertEquals("rewards customer about five weekday should be right!", 500.0,
+				hotel.returnTotalCostByCustomerTypeAndTime(customer.getCustomerType(),customer.getReservationDateTime()),0);
 	}
+	
+	@Test
+	public void testReturnTotalCostByCustomerTypeAndTimeAccordingToRewardsAndWeekend() {
+		Hotel hotel = new Hotel("test", 4, 120, 100, 100, 80);
+		Customer customer = new Customer();
+		int[] date = {6,7};
+		customer.setCustomerType("Rewards");
+		customer.setReservationDateTime(date);
+		assertEquals("rewards customer about five weekday should be right!", 160.0,
+				hotel.returnTotalCostByCustomerTypeAndTime(customer.getCustomerType(),customer.getReservationDateTime()),0);
+	}
+	
+	@Test
+	public void testReturnTotalCostByCustomerTypeAndTimeAccordingToRewardsAndWeekdayAndWeekend() {
+		Hotel hotel = new Hotel("test", 4, 120, 100, 100, 80);
+		Customer customer = new Customer();
+		int[] date = {1,2,3,4,5,6,7};
+		customer.setCustomerType("Rewards");
+		customer.setReservationDateTime(date);
+		assertEquals("rewards customer about five weekday should be right!", 660.0,
+				hotel.returnTotalCostByCustomerTypeAndTime(customer.getCustomerType(),customer.getReservationDateTime()),0);
+	}
+	
+	@Test
+	public void testReturnTotalCostByCustomerTypeAndTimeAccordingToRegularAndWeekday() {
+		Hotel hotel = new Hotel("test", 4, 120, 100, 100, 80);
+		Customer customer = new Customer();
+		int[] date = {1,2,3,4,5};
+		customer.setCustomerType("Regular");
+		customer.setReservationDateTime(date);
+		assertEquals("rewards customer about five weekday should be right!", 600.0,
+				hotel.returnTotalCostByCustomerTypeAndTime(customer.getCustomerType(),customer.getReservationDateTime()),0);
+	}
+	@Test
+	public void testReturnTotalCostByCustomerTypeAndTimeAccaordingToRegularAndWeekend() {
+		Hotel hotel = new Hotel("test", 4, 120, 100, 100, 80);
+		Customer customer = new Customer();
+		int[] date = {6,7};
+		customer.setCustomerType("Regular");
+		customer.setReservationDateTime(date);
+		assertEquals("rewards customer about five weekday should be right!", 200.0,
+				hotel.returnTotalCostByCustomerTypeAndTime(customer.getCustomerType(),customer.getReservationDateTime()),0);
+	}
+	@Test
+	public void testReturnTotalCostByCustomerTypeAndTimeAccordingToRegularAndWeekdayAndWeekend() {
+		Hotel hotel = new Hotel("test", 4, 120, 100, 100, 80);
+		Customer customer = new Customer();
+		int[] date = {1,2,3,4,5,6,7};
+		customer.setCustomerType("Regular");
+		customer.setReservationDateTime(date);
+		assertEquals("rewards customer about five weekday should be right!", 800.0,
+				hotel.returnTotalCostByCustomerTypeAndTime(customer.getCustomerType(),customer.getReservationDateTime()),0);
+	}
+	
 
 }
