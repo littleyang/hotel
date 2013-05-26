@@ -112,24 +112,32 @@ public class Customer {
 	 * @return
 	 */
 	public String searchHotelAndFindAndReturnCheapestAndBestOne(List<Hotel> hotelList){
-	
+		
 		String returnHotelName = "";
 		// do some wrong checkments!
 		if(hotelList.size()==0||getCustomerType().equals("")){
+			
 			// first, the hotel list should not be null
 			System.out.println("your data must be something wrong when serach the hotel!please check it!");
 			throw new IllegalArgumentException("your hotel list or your customer type must be something wrong!");
+		
 		}else if(getReservationDateTime().length==0){
+			
 			// second, check the date time array before search!
 			System.out.println("Your date time is null! please check it!");
 			throw new IllegalArgumentException("your date time data must be wrong!");
+		
 		}else{
+			
 			// customer type and the data time not null!set the data and check the best one!
 			// the compator for the list
 			CompatorHotelCollection hotelCompator = new CompatorHotelCollection();
 			
 			// define the the sort will been srearch!
 			List<HotelCollectionBean> tempList = new ArrayList<HotelCollectionBean>();				
+			
+			// loop to the hotel list and calculate the every total afford and encapsulate the hotel 
+			// collection data bean.
 			for(Hotel hotel:hotelList){
 				HotelCollectionBean bean = new HotelCollectionBean();
 				bean.setTotalAffordByCustomer(hotel.returnTotalCostByCustomerTypeAndTime(getCustomerType(), getReservationDateTime()));
@@ -143,6 +151,8 @@ public class Customer {
 			// get the cheapest one and the best one
 			returnHotelName = tempList.get(0).getHotelName();
 		}
+		
+		// return the best one
 		return returnHotelName;
 	}	
 	

@@ -9,6 +9,14 @@ import per.tw.customer.CustomerTest;
 import per.tw.databean.HotelCollectionBeanTest;
 import per.tw.hotelmodel.HotelTest;
 
+
+/**
+ * this is the test suit about the hotel,customer,data bean and so on
+ * @author yangyang
+ *
+ */
+
+
 @RunWith(Suite.class)
 @SuiteClasses({
 	HotelTest.class,

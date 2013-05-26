@@ -1,6 +1,7 @@
 package per.tw.hotelmodel;
 /**
- * 
+ * this is the hotel model class and some method thats match customer to find out the best hotel among
+ * the hotel list!
  * @author yangyang
  *
  */
@@ -23,9 +24,10 @@ public class Hotel {
 	
 	// define the weekend reward price
 	private float weekendRewardsPrice;
-
-
 	
+	/*
+	 * the hotel constructor
+	 */
 
 	public Hotel(String hotelName, Integer hotelRate, float weekdayRegularPrice,
 			float weekdayRewardsPrice, float weekendRegularPrice,
@@ -39,6 +41,9 @@ public class Hotel {
 		this.weekendRewardsPrice = weekendRewardsPrice;
 	}
 
+	/*
+	 * all get and set methods about the fileds
+	 */
 	public String getHotelName() {
 		return hotelName;
 	}
@@ -116,7 +121,7 @@ public class Hotel {
 					}
 				}
 			}else{ // the customer is regular type,then get the regular price!	
-				// 
+				// for regular customers, just distinguish from the weekday or weekend
 				for(int i=0;i<customrDate.length;i++){
 					if(0<customrDate[i]&&customrDate[i]<6){
 						totalAfford = totalAfford + getWeekdayRegularPrice();
@@ -127,6 +132,7 @@ public class Hotel {
 				}
 			}
 		}
+		// return the total affords that the customer should afford
 		return totalAfford;
 	}
 }

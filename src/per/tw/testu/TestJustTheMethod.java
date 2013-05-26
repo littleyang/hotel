@@ -7,9 +7,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import per.tw.source.back.not.used.Customer;
-import per.tw.source.back.not.used.Hotel;
+import per.tw.customer.Customer;
+import per.tw.hotelmodel.Hotel;
 
+/**
+ * this is about the methods test about the customer and hotel!
+ * read the data from the data.txt and find the best one!
+ * @author yangyang
+ *
+ */
 
 public class TestJustTheMethod {
 	
@@ -22,18 +28,18 @@ public class TestJustTheMethod {
 		float weekdayRewardsPrice, float weekendRegularPrice,
 		float weekendRewardsPrice
 		*/
-		Hotel lakewoodHotel = new Hotel("Lakewood","3",110,80,90,80);
+		Hotel lakewoodHotel = new Hotel("Lakewood",3,110,80,90,80);
 		hotelList.add(lakewoodHotel);
 		
-		Hotel bridgewoodHotel = new Hotel("Bridgewood","4",160,110,60,50);
+		Hotel bridgewoodHotel = new Hotel("Bridgewood",4,160,110,60,50);
 		hotelList.add(bridgewoodHotel);
 		
-		Hotel ridgewoodHotel = new Hotel("Ridgewood","5",220,100,150,40);
+		Hotel ridgewoodHotel = new Hotel("Ridgewood",5,220,100,150,40);
 		hotelList.add(ridgewoodHotel);
 		
 		
 		
-		//		Date today = new Date();
+		//Date today = new Date();
 		
 		Customer cs = new Customer();
 		cs.setTypeAndTimeData("Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)");
