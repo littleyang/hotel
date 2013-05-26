@@ -53,6 +53,7 @@ public class Customer {
 			// check the date time data is valid!
 			if(tempStr.length==1){
 				System.out.println("Oh! please when set the date time gets something wrong!, your date time data is wrong!! please check it!");				
+				throw new IllegalArgumentException("your date time data must be wrong!");	
 			}else{
 				// according to the  data string to get the customer date time
 				setReservationDateTime(analysisTheDataStringAndGetTheDateTime(tempStr[1]));
@@ -117,9 +118,11 @@ public class Customer {
 		if(hotelList.size()==0||getCustomerType().equals("")){
 			// first, the hotel list should not be null
 			System.out.println("your data must be something wrong when serach the hotel!please check it!");
+			throw new IllegalArgumentException("your hotel list or your customer type must be something wrong!");
 		}else if(getReservationDateTime().length==0){
 			// second, check the date time array before search!
 			System.out.println("Your date time is null! please check it!");
+			throw new IllegalArgumentException("your date time data must be wrong!");
 		}else{
 			// customer type and the data time not null!set the data and check the best one!
 			// the compator for the list

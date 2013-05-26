@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import per.tw.source.back.Customer;
-import per.tw.source.back.Hotel;
+import per.tw.source.back.not.used.Customer;
+import per.tw.source.back.not.used.Hotel;
 
 
-public class Test {
+public class TestJustTheMethod {
 	
 	public static void main(String[] args){
 		
@@ -55,28 +55,27 @@ public class Test {
 		//System.out.println(wcs.getReservationDateTime()[0]);
 		System.out.println(wcs.searchHotelAndFindAndReturnCheapestAndBestOne(hotelList));
 		
-//		try {
-//			FileReader data = new FileReader(new File("C:\\Users\\jenny\\workspace\\Hotel\\bin\\data.txt"));
-//			BufferedReader dataBuffer = new BufferedReader(data);
-//			String str = "";
-//			while((str = dataBuffer.readLine()) != null) {
-//				Customer c = new Customer();
-//				c.setTypeAndTimeData(str);
-//				//System.out.println(str.split(":")[1].split(",")[1]);
-//				System.out.println(c.searchHotelAndFindAndReturnCheapestAndBestOne(hotelList));
-//			}
-//			
-//			data.close();
-//			dataBuffer.close();
-//			
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
+		try {
+			FileReader data = new FileReader(new File(System.getProperty("user.dir")+"/src/data.txt"));
+			BufferedReader dataBuffer = new BufferedReader(data);
+			String str = "";
+			while((str = dataBuffer.readLine()) != null) {
+				Customer c = new Customer();
+				c.setTypeAndTimeData(str);
+				//System.out.println(str.split(":")[1].split(",")[1]);
+				System.out.println(c.searchHotelAndFindAndReturnCheapestAndBestOne(hotelList));
+			}
+			
+			data.close();
+			dataBuffer.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
