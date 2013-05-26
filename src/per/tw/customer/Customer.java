@@ -42,19 +42,26 @@ public class Customer {
 	 * @param str
 	 */
 	public void setTypeAndTimeData(String str){
+		
 		// check the data that passed whether is valid!
 		if(str == ""){
 			System.out.println("Oh! please,when set the customer type gets something wrong!, your data is wrong!! please check it!");
 			return ;
 		}else{		
+			
 			String[] tempStr = str.split(":");
+			
 			// according to the  data string to get the customer type 
 			setCustomerType(tempStr[0]);
+			
 			// check the date time data is valid!
 			if(tempStr.length==1){
+				
 				System.out.println("Oh! please when set the date time gets something wrong!, your date time data is wrong!! please check it!");				
 				throw new IllegalArgumentException("your date time data must be wrong!");	
+			
 			}else{
+				
 				// according to the  data string to get the customer date time
 				setReservationDateTime(analysisTheDataStringAndGetTheDateTime(tempStr[1]));
 			}
@@ -114,7 +121,7 @@ public class Customer {
 	public String searchHotelAndFindAndReturnCheapestAndBestOne(List<Hotel> hotelList){
 		
 		String returnHotelName = "";
-		// do some wrong checkments!
+		// do some argument checks!
 		if(hotelList.size()==0||getCustomerType().equals("")){
 			
 			// first, the hotel list should not be null
